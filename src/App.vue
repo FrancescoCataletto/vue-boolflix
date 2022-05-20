@@ -46,7 +46,7 @@ methods:{
 },
 
 mounted(){
-  this.getAPI()
+  // this.getAPI()
 }
 
 }

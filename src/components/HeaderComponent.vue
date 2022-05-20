@@ -4,7 +4,7 @@
           <img src="https://pngimg.com/uploads/netflix/netflix_PNG32.png" alt="">
       </div>
       <div class="d-flex">
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" v-model="movie">
           <button class="btn btn-primary">SEARCH</button>
       </div>
   </header>
@@ -12,7 +12,13 @@
 
 <script>
 export default {
-    name: "HeaderComponent"
+    name: "HeaderComponent",
+
+    data(){
+        return{
+            movie: ""
+        }
+    }
 }
 </script>
 

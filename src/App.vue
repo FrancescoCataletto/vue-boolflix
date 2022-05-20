@@ -1,6 +1,6 @@
 <template>
   <div>
-    
+    <!-- takes emit from header component -->
     <HeaderComponent @click="searchMovie"/>
 
     <MainComponent />
@@ -23,6 +23,7 @@ export default {
 data(){
   return{
     mockURL: "https://api.themoviedb.org/3/search/movie",
+    //params go into the API request: server side does the computation
     params: {
       query: "",
       api_key: "dcc94704b9ae6a8949ee1cf936124c9f",
@@ -32,6 +33,7 @@ data(){
 },
 
 methods:{
+  //activeted from mounted: API request
   getAPI(){
     axios.get(this.mockURL, {
       params: this.params
@@ -44,13 +46,14 @@ methods:{
     })
   },
 
+  //function that get triggered when the search button in the header is clicked: make the query param equal to the "input" text in the header component
   searchMovie(input){
     this.query = input
-    console.log(this.query)
   }
 },
 
 mounted(){
+  // when the page loads the function is called
   // this.getAPI()
 }
 

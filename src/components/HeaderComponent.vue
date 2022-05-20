@@ -1,7 +1,7 @@
 <template>
   <header class="d-flex justify-content-between align-items-center">
       <div>
-          <img src="https://pngimg.com/uploads/netflix/netflix_PNG32.png" alt="">
+          <img src="https://pngimg.com/uploads/netflix/netflix_PNG32.png" alt="Logo Netflix">
       </div>
       <div class="d-flex">
           <input class="form-control" type="text" v-model="movie">
@@ -16,7 +16,8 @@ export default {
 
     data(){
         return{
-            movie: ""
+            //input text data, at click get sent to App component
+            movie: "" 
         }
     }
 }

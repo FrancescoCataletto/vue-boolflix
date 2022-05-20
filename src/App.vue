@@ -28,7 +28,9 @@ data(){
       query: "",
       api_key: "dcc94704b9ae6a8949ee1cf936124c9f",
       language: "it_IT"
-    }
+    },
+
+    movieArr: []
   }
 },
 
@@ -39,6 +41,7 @@ methods:{
       params: this.params
     })
     .then(res => {
+      this.movieArr = this.res.data.results
       console.log(res.data.results)
     })
     .catch(err =>{

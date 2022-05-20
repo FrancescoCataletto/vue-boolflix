@@ -1,7 +1,9 @@
 <template>
   <main class="container">
 
-      <MovieCardComponent :movieArr="movieArr"/>
+      <MovieCardComponent v-for="(movie, index) in movieArr"
+                          :key="`movie${index}`"
+                          :singleMovieCard="movie"/>
 
   </main>
 </template>

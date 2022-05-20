@@ -41,8 +41,8 @@ methods:{
       params: this.params
     })
     .then(res => {
-      this.movieArr = this.res.data.results
-      console.log(res.data.results)
+      this.movieArr = res.data.results
+      console.log(this.movieArr)
     })
     .catch(err =>{
       console.log(err)

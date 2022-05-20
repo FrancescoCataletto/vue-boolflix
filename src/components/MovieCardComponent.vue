@@ -1,17 +1,21 @@
 <template>
   <div class="card">
       <div class="card-body">
-          <h5>TITOLO</h5>
-          <h6>TITOLO ORIGINALE</h6>
-          <p>LINGUA</p>
-          <p>VOTO</p>
+          <h5>{{singleMovieCard.title}}</h5>
+          <h6>{{singleMovieCard.original_title}}</h6>
+          <p>{{singleMovieCard.original_language}}</p>
+          <p>{{singleMovieCard.vote_average}}</p>
       </div>
   </div>
 </template>
 
 <script>
 export default {
-    name: "MovieCardComponent"
+    name: "MovieCardComponent",
+
+    props:{
+        singleMovieCard: Object
+    }
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main class="container d-flex flex-wrap">
 
       <MovieCardComponent v-for="(movie, index) in movieArr"
                           :key="`movie${index}`"
@@ -22,5 +22,8 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/global.scss";
+main{
+    background-color: red;
+}
 
 </style>

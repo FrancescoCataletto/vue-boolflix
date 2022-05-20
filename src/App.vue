@@ -42,6 +42,7 @@ methods:{
     })
     .then(res => {
       this.movieArr = res.data.results
+      console.log(res)
       console.log(this.movieArr)
     })
     .catch(err =>{

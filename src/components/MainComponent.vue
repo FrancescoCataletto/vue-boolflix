@@ -1,7 +1,7 @@
 <template>
   <main class="container">
 
-      <MovieCardComponent />
+      <MovieCardComponent :movieArr="movieArr"/>
 
   </main>
 </template>
@@ -10,7 +10,11 @@
 import MovieCardComponent from './MovieCardComponent.vue';
 export default {
     name: "MainComponent",
-    components: { MovieCardComponent }
+    components: { MovieCardComponent },
+
+    props:{
+        movieArr: Array
+    }
 }
 </script>
 

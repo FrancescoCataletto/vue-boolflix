@@ -3,7 +3,7 @@
     <!-- takes emit from header component -->
     <HeaderComponent @click="searchMovie"/>
 
-    <MainComponent />
+    <MainComponent :movieArr="movieArr"/>
 
   </div>
 </template>

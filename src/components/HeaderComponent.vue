@@ -5,7 +5,7 @@
       </div>
       <div class="d-flex">
           <input class="form-control" type="text" v-model="movie">
-          <button class="btn btn-primary">SEARCH</button>
+          <button class="btn btn-primary" @click="$emit('click', movie)">SEARCH</button>
       </div>
   </header>
 </template>

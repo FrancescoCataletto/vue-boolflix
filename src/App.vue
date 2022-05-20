@@ -1,7 +1,7 @@
 <template>
   <div>
     
-    <HeaderComponent />
+    <HeaderComponent @click="searchMovie"/>
 
     <MainComponent />
 
@@ -24,7 +24,7 @@ data(){
   return{
     mockURL: "https://api.themoviedb.org/3/search/movie",
     params: {
-      query: "marvel",
+      query: "",
       api_key: "dcc94704b9ae6a8949ee1cf936124c9f",
       language: "it_IT"
     }
@@ -42,6 +42,11 @@ methods:{
     .catch(err =>{
       console.log(err)
     })
+  },
+
+  searchMovie(input){
+    this.query = input
+    console.log(this.query)
   }
 },
 

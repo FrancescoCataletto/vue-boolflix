@@ -48,15 +48,11 @@ methods:{
 
   //function that get triggered when the search button in the header is clicked: make the query param equal to the "input" text in the header component
   searchMovie(input){
-    this.query = input
+    this.params.query = input
+    this.getAPI()
+    console.log(this.params.query)
   }
-},
-
-mounted(){
-  // when the page loads the function is called
-  // this.getAPI()
 }
-
 }
 </script>
 

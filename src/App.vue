@@ -46,8 +46,10 @@ methods:{
     })
     .then(res => {
       if(this.selected === "movie"){
+        this.tvArr = []
         this.movieArr = res.data.results
       }else if(this.selected === "tv"){
+        this.movieArr = []
         this.tvArr = res.data.results
       }
     })

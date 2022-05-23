@@ -1,5 +1,5 @@
 <template>
-  <main class="container d-flex flex-wrap">
+  <main class="container d-flex flex-wrap justify-content-center">
       <h2>FILMS</h2>
       <MovieCardComponent v-for="(movie, index) in movieArr"
                           :key="`movie${index}`"

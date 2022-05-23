@@ -51,6 +51,9 @@ methods:{
       }else if(this.selected === "tv"){
         this.movieArr = []
         this.tvArr = res.data.results
+      }else{
+        this.tvArr = res.data.results
+        this.movieArr = res.data.results
       }
     })
     .catch(err =>{

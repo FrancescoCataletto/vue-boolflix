@@ -6,6 +6,9 @@
           <p>LANGUAGE: {{singleMovieCard.original_language}}</p>
           <p>RATING: {{singleMovieCard.vote_average}}</p>
       </div>
+      <div id="immagine">
+          IMMAGINE
+      </div>
     </div>
 </template>
 
@@ -28,8 +31,28 @@ export default {
 }
 
 .card{
-    width: 20%;
+    width: calc(20% - 20px);
     height: 200px;
+    margin: 10px;
 }
 
+.card-body{
+    position: relative;
+}
+
+.card:hover .card-body{
+    display: none;
+}
+
+#immagine{
+    position: absolute;
+    background-color: aquamarine;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.card:hover #immagine{
+    display: block;
+}
 </style>

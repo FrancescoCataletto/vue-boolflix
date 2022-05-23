@@ -1,10 +1,10 @@
 <template>
   <main class="container d-flex flex-wrap">
-
+      <h2>FILMS</h2>
       <MovieCardComponent v-for="(movie, index) in movieArr"
                           :key="`movie${index}`"
                           :singleMovieCard="movie"/>
-
+      <h2>TV SERIES</h2>
       <TvCardComponent v-for="(serie, index) in tvArr"
                           :key="`serie${index}`"
                           :singleTvCard="serie"/>  
@@ -31,7 +31,11 @@ export default {
 @import "../assets/global.scss";
 main{
     background-color: red;
-    height: calc(100vh - 80px);
+}
+
+h2{
+    flex-basis: 100%;
+    margin: 20px 0;
 }
 
 </style>

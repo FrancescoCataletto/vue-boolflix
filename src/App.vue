@@ -25,6 +25,8 @@ export default {
 data(){
   return{
     mockURL: "https://api.themoviedb.org/3/search/",
+    popularMovie: "https://api.themoviedb.org/3/search/movie/popular",
+    popularTv: "https://api.themoviedb.org/3/search/tv/popular",
     // valore del menu select
     selected: "",
     //params go into the API request: server side does the computation
@@ -71,7 +73,7 @@ methods:{
     }
     this.selected = input
     this.getAPI()
-  }
+  },
 }
 }
 </script>

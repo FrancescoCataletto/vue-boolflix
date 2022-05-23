@@ -1,7 +1,8 @@
 <template>
   <div>
     <!-- takes emit from header component -->
-    <HeaderComponent @click="searchMovie"/>
+    <HeaderComponent @change="searchMovie"
+                     @type="filmTyped"/>
 
     <MainComponent :movieArr="movieArr"/>
 
@@ -22,14 +23,14 @@ export default {
 
 data(){
   return{
-    mockURL: "https://api.themoviedb.org/3/search/movie",
+    mockURL: "https://api.themoviedb.org/3/search/",
     //params go into the API request: server side does the computation
+    selected: "",
     params: {
       query: "",
       api_key: "dcc94704b9ae6a8949ee1cf936124c9f",
       language: "it_IT"
     },
-
     movieArr: []
   }
 },
@@ -37,7 +38,7 @@ data(){
 methods:{
   //activeted from mounted: API request
   getAPI(){
-    axios.get(this.mockURL, {
+    axios.get((this.mockURL + this.selected), {
       params: this.params
     })
     .then(res => {
@@ -50,11 +51,16 @@ methods:{
     })
   },
 
+  filmTyped(film){
+    this.params.query = film
+  },
   //function that get triggered when the search button in the header is clicked: make the query param equal to the "input" text in the header component
   searchMovie(input){
-    this.params.query = input
+    if(input === "all"){
+      input = "multi"
+    }
+    this.selected = input
     this.getAPI()
-    console.log(this.params.query)
   }
 }
 }

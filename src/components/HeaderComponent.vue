@@ -4,8 +4,12 @@
           <img src="https://pngimg.com/uploads/netflix/netflix_PNG32.png" alt="Logo Netflix">
       </div>
       <div class="d-flex">
-          <input class="form-control" type="text" v-model="movie">
-          <button class="btn btn-primary" @click="$emit('click', movie)">SEARCH</button>
+          <input class="form-control" type="text" @change="$emit('type', movie)" v-model="movie">
+          <select name="" id="" @change="$emit('change', value)" v-model="value">
+              <option value="all">ALL</option>
+              <option value="movie">MOVIE</option>
+              <option value="tv">SERIES</option>
+          </select>
       </div>
   </header>
 </template>
@@ -17,7 +21,8 @@ export default {
     data(){
         return{
             //input text data, at click get sent to App component
-            movie: "" 
+            movie: "",
+            value: ""
         }
     }
 }

@@ -4,7 +4,8 @@
     <HeaderComponent @change="searchMovie"
                      @type="filmTyped"/>
 
-    <MainComponent :movieArr="movieArr"/>
+    <MainComponent :movieArr="movieArr"
+                   :tvArr="tvArr"/>
 
   </div>
 </template>
@@ -24,14 +25,16 @@ export default {
 data(){
   return{
     mockURL: "https://api.themoviedb.org/3/search/",
-    //params go into the API request: server side does the computation
+    // valore del menu select
     selected: "",
+    //params go into the API request: server side does the computation
     params: {
       query: "",
       api_key: "dcc94704b9ae6a8949ee1cf936124c9f",
       language: "it_IT"
     },
-    movieArr: []
+    movieArr: [],
+    tvArr: []
   }
 },
 
@@ -42,21 +45,23 @@ methods:{
       params: this.params
     })
     .then(res => {
-      this.movieArr = res.data.results
-      console.log(res)
-      console.log(this.movieArr)
+      if(this.selected === "movie"){
+        this.movieArr = res.data.results
+      }else if(this.selected === "tv"){
+        this.tvArr = res.data.results
+      }
     })
     .catch(err =>{
       console.log(err)
     })
   },
-
+  // film o serie tv digitata
   filmTyped(film){
     this.params.query = film
   },
-  //function that get triggered when the search button in the header is clicked: make the query param equal to the "input" text in the header component
+  // valori del menu select
   searchMovie(input){
-    if(input === "all"){
+    if(input === ""){
       input = "multi"
     }
     this.selected = input

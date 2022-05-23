@@ -5,7 +5,9 @@
                           :key="`movie${index}`"
                           :singleMovieCard="movie"/>
 
-      <TvCardComponent />  
+      <TvCardComponent v-for="(serie, index) in tvArr"
+                          :key="`serie${index}`"
+                          :singleTvCard="serie"/>  
 
   </main>
 </template>
@@ -19,7 +21,8 @@ export default {
     components: { MovieCardComponent, TvCardComponent },
 
     props:{
-        movieArr: Array
+        movieArr: Array,
+        tvArr: Array
     }
 }
 </script>

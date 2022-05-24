@@ -6,7 +6,7 @@
       <div class="d-flex">
           <input class="form-control" type="text" @change="$emit('type', movie)" v-model="movie">
           <select name="" id="" @change="$emit('change', value)" v-model="value">
-              <option value="" selected>ALL</option>
+              <option value="all" selected>ALL</option>
               <option value="movie">MOVIE</option>
               <option value="tv">SERIES</option>
           </select>
@@ -22,7 +22,7 @@ export default {
         return{
             //input text data, at click get sent to App component
             movie: "",
-            value: ""
+            value: "all"
         }
     }
 }

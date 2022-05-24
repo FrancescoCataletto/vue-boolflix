@@ -24,9 +24,8 @@ export default {
 
 data(){
   return{
-    mockURL: "https://api.themoviedb.org/3/search/",
-    popularMovie: "https://api.themoviedb.org/3/search/movie/popular",
-    popularTv: "https://api.themoviedb.org/3/search/tv/popular",
+    movieUrl: "https://api.themoviedb.org/3/search/movie/",
+    tvUrl: "https://api.themoviedb.org/3/search/tv/",
     // valore del menu select
     selected: "",
     //params go into the API request: server side does the computation
@@ -41,25 +40,22 @@ data(){
 },
 
 methods:{
-  //activeted from mounted: API request
-  getAPI(){
-    axios.get((this.mockURL + this.selected), {
+  // MOVIE API CALL
+  getMovieApi(){
+    axios.get((this.movieUrl),{
       params: this.params
     })
     .then(res => {
-      if(this.selected === "movie"){
-        this.tvArr = []
-        this.movieArr = res.data.results
-      }else if(this.selected === "tv"){
-        this.movieArr = []
-        this.tvArr = res.data.results
-      }else{
-        this.tvArr = res.data.results
-        this.movieArr = res.data.results
-      }
+      this.movieArr = res.data.results
     })
-    .catch(err =>{
-      console.log(err)
+  },
+  // TV SERIES API CALL
+  getTvApi(){
+    axios.get((this.tvUrl),{
+      params: this.params
+    })
+    .then(res => {
+      this.tvArr = res.data.results
     })
   },
   // film o serie tv digitata
@@ -68,11 +64,18 @@ methods:{
   },
   // valori del menu select
   searchMovie(input){
-    if(input === ""){
-      input = "multi"
-    }
     this.selected = input
-    this.getAPI()
+    if(this.selected === "movie"){
+      this.tvArr = []
+      this.getMovieApi()
+    }else if(this.selected === "tv"){
+      this.movieArr = []
+      this.getTvApi()
+    }else if(this.selected === "all"){
+      this.getTvApi()
+      this.getMovieApi()
+    }
+    
   },
 }
 }

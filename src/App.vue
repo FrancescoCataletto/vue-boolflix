@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- takes emit from header component -->
-    <HeaderComponent @change="searchMovie"
+    <HeaderComponent @change="assegnaTipo"
                      @type="filmTyped"/>
 
     <MainComponent :movieArr="movieArr"
@@ -28,7 +28,7 @@ data(){
     tvUrl: "https://api.themoviedb.org/3/search/tv/",
     popularMoviesUrl: "https://api.themoviedb.org/3/movie/popular/",
     // valore del menu select
-    selected: "",
+    selected: "all",
     //params go into the API request: server side does the computation
     params: {
       query: "",
@@ -66,10 +66,16 @@ methods:{
   // film o serie tv digitata
   filmTyped(film){
     this.params.query = film
+    this.searchMovie()
+    console.log(this.params.query)
+  },
+
+  assegnaTipo(input){
+    this.selected = input
+    this.searchMovie()
   },
   // valori del menu select
-  searchMovie(input){
-    this.selected = input
+  searchMovie(){
     if(this.selected === "movie"){
       this.tvArr = []
       this.getMovieApi()
@@ -80,7 +86,6 @@ methods:{
       this.getTvApi()
       this.getMovieApi()
     }
-    
   },
   // popular movies shown by default at mounted
   popularApi(){

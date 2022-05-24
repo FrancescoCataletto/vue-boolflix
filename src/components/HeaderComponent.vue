@@ -4,7 +4,7 @@
           <img src="https://pngimg.com/uploads/netflix/netflix_PNG32.png" alt="Logo Netflix">
       </div>
       <div class="d-flex">
-          <input class="form-control" type="text" @change="$emit('type', movie)" v-model="movie">
+          <input class="form-control" type="text" v-model="movie" @keyup.enter="search()">
           <select name="" id="" @change="$emit('change', value)" v-model="value">
               <option value="all" selected>ALL</option>
               <option value="movie">MOVIE</option>
@@ -23,6 +23,13 @@ export default {
             //input text data, at click get sent to App component
             movie: "",
             value: "all"
+        }
+    },
+
+    methods:{
+        search(){
+            console.log("prova")
+            this.$emit('type', this.movie)
         }
     }
 }

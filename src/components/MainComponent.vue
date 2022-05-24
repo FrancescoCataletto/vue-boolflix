@@ -4,6 +4,7 @@
       <MovieCardComponent v-for="(movie, index) in movieArr"
                           :key="`movie${index}`"
                           :singleMovieCard="movie"/>
+                          
       <h2 v-if= "tvArr.length > 0">TV SERIES</h2>
       <TvCardComponent v-for="(serie, index) in tvArr"
                           :key="`serie${index}`"

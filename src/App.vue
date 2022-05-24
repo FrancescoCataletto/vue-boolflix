@@ -26,6 +26,7 @@ data(){
   return{
     movieUrl: "https://api.themoviedb.org/3/search/movie/",
     tvUrl: "https://api.themoviedb.org/3/search/tv/",
+    popularMoviesUrl: "https://api.themoviedb.org/3/movie/popular/",
     // valore del menu select
     selected: "",
     //params go into the API request: server side does the computation
@@ -37,6 +38,10 @@ data(){
     movieArr: [],
     tvArr: []
   }
+},
+
+mounted(){
+  this.popularApi()
 },
 
 methods:{
@@ -77,6 +82,14 @@ methods:{
     }
     
   },
+  popularApi(){
+    axios.get((this.popularMoviesUrl),{
+      params: this.params
+    })
+    .then(res => {
+      this.movieArr = res.data.results
+    })
+  }
 }
 }
 </script>

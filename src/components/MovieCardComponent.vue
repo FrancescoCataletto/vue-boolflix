@@ -7,7 +7,8 @@
           <p>RATING: <star-rating :rating="stelle" :star-style="starStyle"></star-rating></p>
       </div>
       <div id="immagine">
-          <img :src="`https://image.tmdb.org/t/p/w342/${singleMovieCard.poster_path}`" alt="">
+          <img v-if="(singleMovieCard.poster_path || singleMovieCard.backdrop_path)" :src="`https://image.tmdb.org/t/p/w342/${singleMovieCard.poster_path || singleMovieCard.backdrop_path}`" alt="">
+          <img v-else src="https://upload.wikimedia.org/wikipedia/commons/a/a6/No_picture_available_png.png" alt="">
       </div>
     </div>
 </template>

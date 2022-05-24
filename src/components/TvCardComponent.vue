@@ -4,10 +4,11 @@
           <h5>TITLE: {{singleTvCard.name}}</h5>
           <h6>{{singleTvCard.original_name}}</h6>
           <p>LANGUAGE: <flag :iso="singleTvCard.original_language"/></p>
-          <p>RATING: {{singleTvCard.vote_average}}</p>
+          <p>RATING: <star-rating :rating="stelle" :star-style="starStyle"></star-rating></p>
       </div>
       <div id="immagine">
-          <img :src="`https://image.tmdb.org/t/p/w342/${singleTvCard.poster_path}`" alt="">
+          <img v-if="(singleTvCard.poster_path || singleTvCard.backdrop_path)" :src="`https://image.tmdb.org/t/p/w342/${singleTvCard.poster_path || singleTvCard.backdrop_path}`" alt="">
+          <img v-else src="https://upload.wikimedia.org/wikipedia/commons/a/a6/No_picture_available_png.png" alt="">
       </div>
     </div>
 </template>
@@ -16,7 +17,18 @@
 
 export default {
     name: "TVCardComponent",
-
+    data(){
+        return{
+            stelle: (this.singleTvCard.vote_average / 2),
+            rating: "",
+            starStyle: {
+            fullStarColor: '#ed8a19',
+            emptyStarColor: '#737373',
+            starWidth: 30,
+            starHeight: 30
+            }
+        }
+    },
     props:{
         singleTvCard: Object
     }

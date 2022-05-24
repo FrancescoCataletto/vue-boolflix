@@ -36,6 +36,7 @@ export default {
     min-width: 300px;
     height: 400px;
     margin: 10px;
+    cursor: pointer;
 }
 
 .card-body{

@@ -82,6 +82,7 @@ methods:{
     }
     
   },
+  // popular movies shown by default at mounted
   popularApi(){
     axios.get((this.popularMoviesUrl),{
       params: this.params

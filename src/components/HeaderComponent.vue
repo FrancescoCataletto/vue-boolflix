@@ -28,7 +28,6 @@ export default {
 
     methods:{
         search(){
-            console.log("prova")
             this.$emit('type', this.movie)
         }
     }
@@ -42,6 +41,7 @@ header{
     background-color: black;
     img{
         height: 70px;
+        cursor: pointer;
     }
 }
 

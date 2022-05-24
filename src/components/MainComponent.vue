@@ -1,14 +1,13 @@
 <template>
   <main class="container d-flex flex-wrap justify-content-center">
-      <h2>FILMS</h2>
+      <h2 v-if= "movieArr.length > 0">FILMS</h2>
       <MovieCardComponent v-for="(movie, index) in movieArr"
                           :key="`movie${index}`"
                           :singleMovieCard="movie"/>
-      <h2>TV SERIES</h2>
+      <h2 v-if= "tvArr.length > 0">TV SERIES</h2>
       <TvCardComponent v-for="(serie, index) in tvArr"
                           :key="`serie${index}`"
                           :singleTvCard="serie"/>  
-
   </main>
 </template>
 

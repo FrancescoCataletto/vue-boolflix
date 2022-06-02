@@ -101,9 +101,12 @@ methods:{
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&family=Montserrat:wght@100;400&family=Roboto&family=Rubik+Mono+One&display=swap');
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Bebas Neue';
 }
 </style>

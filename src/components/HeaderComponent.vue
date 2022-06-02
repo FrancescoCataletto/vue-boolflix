@@ -1,7 +1,14 @@
 <template>
   <header class="d-flex justify-content-between align-items-center">
-      <div>
-          <img src="https://pngimg.com/uploads/netflix/netflix_PNG32.png" alt="Logo Netflix">
+      <div class="d-flex">
+        <img src="https://pngimg.com/uploads/netflix/netflix_PNG32.png" alt="Logo Netflix">
+        <nav>
+          <ul class="d-flex">
+              <li>Home</li>
+              <li>Serie Tv</li>
+              <li>Film</li>
+          </ul>
+        </nav>
       </div>
       <div class="d-flex">
           <input class="form-control" type="text" v-model="movie" @keyup.enter="search()">
@@ -40,8 +47,21 @@ header{
     height: 80px;
     background-color: black;
     img{
-        height: 70px;
+        height: 80px;
         cursor: pointer;
+    }
+    nav{
+        color: white;
+        height: 80px;
+        ul{
+            line-height: 80px;
+            li{
+                list-style: none;
+                margin-right: 30px;
+                font-size: 20px;
+                cursor: pointer;
+            }
+        }
     }
 }
 
